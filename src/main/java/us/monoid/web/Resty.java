@@ -3,8 +3,6 @@ package us.monoid.web;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.Authenticator;
-import java.net.CookieHandler;
-import java.net.CookieManager;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URLConnection;
@@ -55,13 +53,16 @@ import us.monoid.web.mime.MultipartContent;
 public class Resty {
 	protected static String MOZILLA = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.6; en-US; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13";
 	protected static String DEFAULT_USER_AGENT = "Resty/0.1 (Java)";
+	
+	public static String DEFAULT_CHARSET = "UTF-8";
+	
 	static RestyAuthenticator rath = new RestyAuthenticator();
 	static {
 		// set up content handlers. note: this is not ideal as it might conflict
 		// with existing content factories
 		// got rid of it: System.setProperty("java.content.handler.pkgs",
 		// "us.monoid.web.content.handler");
-		CookieHandler.setDefault(new CookieManager());
+//		CookieHandler.setDefault(new CookieManager());
 		Authenticator.setDefault(rath);
 	}
 

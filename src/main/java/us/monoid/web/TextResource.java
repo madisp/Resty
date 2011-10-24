@@ -62,7 +62,7 @@ public class TextResource extends AbstractResource {
 	 */
 	protected Charset getCharSet() {
 		String contentType = urlConnection.getContentType();
-		Charset charset = Charset.forName("iso-8859-1"); // default charset
+		Charset charset = Charset.forName(Resty.DEFAULT_CHARSET); // default charset
 		if (contentType != null) {
 			// find out about the charset from the URLConnection
 			Matcher m = charsetPattern.matcher(contentType);
